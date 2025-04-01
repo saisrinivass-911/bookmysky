@@ -1,0 +1,238 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Flight-Themed Background */
+.animated-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #87ceeb, #ffffff);
+    overflow: hidden;
+    z-index: -1;
+}
+
+.animated-bg:before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background-size: contain;
+    animation: plane-fly 10s linear infinite;
+    opacity: 0.8;
+}
+
+.animated-bg:after {
+    content: "";
+    position: absolute;
+    top: 60%;
+    right: -10%;
+    width: 200px;
+    height: 200px;
+    background: url("../images/airplane.jpg") no-repeat center;
+    background-size: contain;
+    animation: cloud-move 12s linear infinite;
+    opacity: 0.6;
+}
+
+/* Keyframes for Animation */
+@keyframes plane-fly {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(120%) translateY(-20%);
+    }
+}
+
+@keyframes cloud-move {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-150%);
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.hero h1 span {
+    color: #ffdf00;
+    font-weight: bold;
+}
+
+/* Style for the rectangle image above header */
+.hero-image {
+    width: 300px; /* Adjust width to your liking */
+    height: 150px; /* Adjust height to make it rectangular */
+    object-fit: cover; /* Ensures it maintains aspect ratio */
+    border-radius: 10px; /* Optional: adds rounded corners */
+    margin-bottom: 20px; /* Space between the image and the text */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional: subtle shadow */
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+    .hero-image {
+        width: 80%; /* Adjust size for smaller screens */
+        height: auto;
+    }
+}
+
+/* Form Section */
+.form-section {
+    background: linear-gradient(-315deg, #4facfe, #00f2fe);
+    padding: 50px 0;
+}
+
+/* Card Container (Now Blocks) */
+/* Transparent card styling */
+.card {
+    background: rgba(255, 255, 255, 0); /* Fully transparent background */
+    padding: 30px;
+    border-radius: 15px;
+}
+
+/* 2-column grid layout for the form */
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    gap: 20px; /* Space between columns */
+}
+
+/* Ensure buttons and prediction text stay centered under the form */
+button, h3 {
+    grid-column: span 2; /* Make button and result span both columns */
+}
+
+/* Form controls styling */
+.form-control {
+    border-radius: 25px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease;
+    height: auto;
+    line-height: 1.5;
+}
+
+/* Ensure dropdowns and inputs behave consistently */
+select.form-control {
+    padding: 8px 12px;
+    height: 45px;
+    line-height: 1.5;
+    appearance: none;
+}
+
+/* Make it responsive on smaller screens */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr; /* Switch to a single column on smaller screens */
+    }
+
+    button, h3 {
+        grid-column: span 1;
+    }
+}
+
+/* Block Hover Effect */
+.form-group:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Labels */
+.form-group label {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Icons */
+.form-group label i {
+    color: #ffdf00;
+    margin-right: 8px;
+}
+
+/* Block Inputs */
+.form-control {
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Input Hover */
+.form-control:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Focus */
+.form-control:focus {
+    box-shadow: 0 0 10px rgba(0, 162, 255, 0.8);
+    outline: none;
+}
+
+/* Button Styling */
+.btn-gradient {
+    background: linear-gradient(45deg, #ffdb00, #36ff00);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-gradient:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+/* Fix Dropdown Height & Padding */
+.form-control {
+    border-radius: 25px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease;
+    height: auto; /* Ensure height adapts to content */
+    line-height: 1.5; /* Improve text alignment inside */
+}
+
+/* Dropdown Specific Styling */
+select.form-control {
+    padding: 8px 12px; /* Adjust padding for dropdowns specifically */
+    height: 45px; /* Set a clean, consistent height */
+    line-height: 1.5; /* Keep text aligned nicely */
+    appearance: none; /* Optional: cleaner dropdown look */
+}
